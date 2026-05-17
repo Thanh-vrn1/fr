@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 Fiches Oral Bac Français — Compact</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+  --bg: #0f0f0f;
+  --card: #1a1a1a;
+  --card2: #222;
+  --text: #e8e4df;
+  --muted: #8a8580;
+  --green: #4ade80;
+  --blue: #60a5fa;
+  --orange: #fb923c;
+  --purple: #c084fc;
+  --red: #f87171;
+  --yellow: #fbbf24;
+  --cyan: #22d3ee;
+  --border: #333;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 30px 15px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8em;
+  background: linear-gradient(135deg, var(--green), var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header p { color: var(--muted); margin-top: 5px; font-size: 0.95em; }
+
+/* NAV */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 12px;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  background: rgba(15,15,15,0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.nav a {
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.nav a:hover { color: white; border-color: var(--green); }
+.nav a.po { color: var(--green); border-color: #2a5a2a; }
+.nav a.id { color: var(--orange); border-color: #5a3a1a; }
+.nav a.ro { color: var(--blue); border-color: #1a3a5a; }
+.nav a.th { color: var(--purple); border-color: #4a2a5a; }
+.nav a.me { color: var(--yellow); border-color: #5a4a1a; }
+
+/* CARDS */
+.container { max-width: 800px; margin: 0 auto; padding: 10px; }
+
+.fiche {
+  background: var(--card);
+  border-radius: 10px;
+  margin: 12px 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.fiche-head {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.fiche-head:hover { background: var(--card2); }
+
+.fiche-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4em;
+  min-width: 30px;
+}
+.fiche-num.po { color: var(--green); }
+.fiche-num.id { color: var(--orange); }
+.fiche-num.ro { color: var(--blue); }
+.fiche-num.th { color: var(--purple); }
+
+.fiche-info { flex: 1; }
+.fiche-info .auteur { font-weight: 700; font-size: 1em; }
+.fiche-info .titre { color: var(--muted); font-size: 0.85em; }
+
+.tag {
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tag.po { background: #1a3a1a; color: var(--green); }
+.tag.id { background: #3a2a1a; color: var(--orange); }
+.tag.ro { background: #1a2a3a; color: var(--blue); }
+.tag.th { background: #2a1a3a; color: var(--purple); }
+
+.arrow { color: var(--muted); transition: transform 0.2s; font-size: 1.2em; }
+.fiche.open .arrow { transform: rotate(90deg); }
+
+.fiche-body {
+  display: none;
+  padding: 0 15px 15px;
+}
+.fiche.open .fiche-body { display: block; }
+
+/* INNER SECTIONS */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 12px 0 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.sl-intro { background: #1a2a1a; color: var(--green); }
+.sl-prob { background: #3a2a0a; color: var(--yellow); }
+.sl-mvt { background: #1a1a3a; color: var(--blue); }
+.sl-proc { background: #2a1a2a; color: var(--purple); }
+.sl-ccl { background: #2a1a1a; color: var(--red); }
+
+.prob-box {
+  background: #1c1a10;
+  border-left: 3px solid var(--yellow);
+  padding: 8px 12px;
+  margin: 5px 0;
+  font-style: italic;
+  font-size: 0.95em;
+  color: var(--yellow);
+}
+
+.mvt-grid {
+  display: grid;
+  gap: 4px;
+  margin: 5px 0;
+}
+.mvt-item {
+  background: var(--card2);
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+.mvt-item strong { color: var(--cyan); }
+
+.proc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 5px 0;
+  font-size: 0.85em;
+}
+.proc-table th {
+  text-align: left;
+  padding: 4px 6px;
+  background: var(--card2);
+  color: var(--muted);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.proc-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid #2a2a2a;
+  vertical-align: top;
+}
+.proc-table .p { color: var(--cyan); font-weight: 500; white-space: nowrap; }
+.proc-table .c { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+.proc-table .a { color: var(--text); }
+
+.ccl-box {
+  background: #1a1215;
+  border-left: 3px solid var(--red);
+  padding: 8px 12px;
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+.ccl-box strong { color: var(--red); }
+
+/* METHOD */
+.method-section {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  border: 1px solid var(--border);
+}
+.method-section h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3em;
+  margin-bottom: 12px;
+}
+.method-section h2.yel { color: var(--yellow); }
+.method-section h2.cya { color: var(--cyan); }
+
+.day-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 2px 10px;
+  font-size: 0.9em;
+}
+.day-label {
+  font-weight: 700;
+  color: var(--cyan);
+  padding: 4px 0;
+}
+.day-task {
+  padding: 4px 0;
+  border-bottom: 1px solid #222;
+}
+
+.tip {
+  background: #1a1a0a;
+  border: 1px solid #3a3a1a;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-size: 0.9em;
+}
+.tip strong { color: var(--yellow); }
+
+@media print {
+  body { background: white; color: black; font-size: 9pt; }
+  .nav { display: none; }
+  .fiche { border: 1px solid #ccc; break-inside: avoid; }
+  .fiche-body { display: block !important; }
+  .fiche-head { padding: 8px 10px; }
+  .prob-box { background: #fff8e0; }
+  .mvt-item { background: #f5f5f5; }
+  .ccl-box { background: #fef0f0; }
+  .proc-table th { background: #f0f0f0; }
+  .tag, .section-label { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  :root { --text: #111; --muted: #666; --cyan: #0066aa; --green: #006600; --orange: #aa5500; --blue: #003399; --purple: #660099; --yellow: #886600; --red: #990000; }
+}
+
+
+/* META TAGS */
+.fiche-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 5px;
+}
+.meta-tag {
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.meta-tag.date  { color: var(--cyan);   background: #0f2020; border: 1px solid #1a3a3a; }
+.meta-tag.genre { color: var(--purple); background: #1a0f2a; border: 1px solid #2a1a3a; }
+.meta-tag.rec   { color: var(--orange); background: #2a1a0f; border: 1px solid #3a2a1a; }
+.meta-tag.epo   { color: var(--green);  background: #0f2a0f; border: 1px solid #1a3a1a; }
+
+@media (max-width: 500px) {
+  .proc-table { font-size: 0.8em; }
+  .fiche-info .auteur { font-size: 0.9em; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>12 Fiches Oral — Bac Français</h1>
+  <p>1STI2D1 • Ultra-compact • Clique pour ouvrir</p>
+</div>
+
+<div class="nav">
+  <a href="#method" class="me">Méthode</a>
+  <a href="#planning" class="me">Planning</a>
+  <a href="#f1" class="po">1</a><a href="#f2" class="po">2</a><a href="#f3" class="po">3</a>
+  <a href="#f4" class="id">4</a><a href="#f5" class="id">5</a><a href="#f6" class="id">6</a>
+  <a href="#f7" class="ro">7</a><a href="#f8" class="ro">8</a><a href="#f9" class="ro">9</a>
+  <a href="#f10" class="th">10</a><a href="#f14" class="th">14</a><a href="#f15" class="th">15</a>
+</div>
+
+<div class="container">
+
+<!-- ====================== MÉTHODE RAPIDE ====================== -->
+<div class="method-section" id="method">
+<h2 class="yel">⚡ Mémo oral — 20 min de passage</h2>
+
+<div class="tip"><strong>1re PARTIE (12 min / 12 pts)</strong><br>
+• Intro + lecture = 2 min / 2 pts → Amorce, auteur, œuvre, date, contexte, problématique, mouvements, puis LECTURE expressive.<br>
+• Explication linéaire = 8 min / 8 pts → Mouvement par mouvement. Toujours : PROCÉDÉ + CITATION + EFFET. Jamais de paraphrase.<br>
+• Grammaire = 2 min / 2 pts → Phrase complexe ? Combien de verbes conjugués = combien de propositions. Détaillez chacune.</div>
+
+<div class="tip"><strong>2e PARTIE (8 min / 8 pts)</strong><br>
+• Présentation œuvre = 2-3 min → Auteur, genre, résumé, 3 arguments perso illustrés.<br>
+• Entretien = 5 min → Dialoguez, citez l'œuvre précisément.</div>
+
+<div class="tip"><strong>RÈGLES D'OR :</strong><br>
+• Ne rédiger que la 1re et dernière phrase. Le reste = notes.<br>
+• Annoncer l'idée principale de chaque mouvement AVANT d'analyser.<br>
+• Ne jamais relire le texte phrase par phrase.<br>
+• Conclusion rapide : récap des mvts + ouverture facultative.</div>
+</div>
+
+<!-- ====================== FICHE 1 ====================== -->
+<div class="fiche open" id="f1">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num po">1</div>
+  <div class="fiche-info">
+    <div class="auteur">Anna de Noailles — « La Vie profonde »</div>
+    <div class="titre">Le Cœur innombrable, 1901 • 4 quatrains alexandrins</div>
+    <div class="fiche-meta"><span class="meta-tag date">1901</span><span class="meta-tag rec">Le Cœur innombrable</span><span class="meta-tag genre">Poésie lyrique</span><span class="meta-tag epo">Post-romantisme · Belle Époque</span></div>
+  </div>
+  <span class="tag po">Poésie</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Noailles (1876-1933), héritière du romantisme. Recueil <em>Le Cœur innombrable</em> 1901. 4 quatrains d'alexandrins, rimes embrassées. Fusion homme/nature, vie par les sensations.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment, à travers ce poème liant l'arbre et l'humain, la poétesse nous invite-t-elle à vivre pleinement, intensément ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> Strophe 1 — Fusion humanité / nature</div>
+  <div class="mvt-item"><strong>MVT 2</strong> Str. 2 + début str. 3 — La brûlure de la vie (5 sens)</div>
+  <div class="mvt-item"><strong>MVT 3</strong> Fin str. 3 + str. 4 — Embrasser les opposés</div>
+</div>
+
+<span class="section-label sl-proc">Procédés clés</span>
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Comparaison</td><td class="c">« ainsi qu'un arbre humain »</td><td class="a">Fusionne homme et nature dès le v.1</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« profond feuillage » (désirs)</td><td class="a">Intériorité = végétal</td></tr>
+<tr><td class="p">Infinitifs</td><td class="c">Être, Étendre, Sentir, Vivre</td><td class="a">Portée universelle, pas de sujet précis</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« sève universelle »</td><td class="a">Force vitale circule dans l'homme</td></tr>
+<tr><td class="p">Antithèses</td><td class="c">« joie/douleur », « embruns/pleurs », « jour/ombre », « flamme/eau »</td><td class="a">Vivre = embrasser TOUS les contraires</td></tr>
+<tr><td class="p">4 éléments</td><td class="c">« l'air, le feu et le sang »</td><td class="a">L'homme contient l'univers</td></tr>
+<tr><td class="p">Image finale</td><td class="c">« l'âme qui rêve, au bord du monde assise… »</td><td class="a">Contemplation mystique, points de suspension = ouverture infinie</td></tr>
+</table>
+
+<span class="section-label sl-ccl">Conclusion</span>
+<div class="ccl-box">Vie par les sensations, fusion totale homme/nature. <strong>Ouv.</strong> : opposition avec Descartes (« je pense donc je suis ») — ici la sensation prime, la pensée n'est jamais évoquée.</div>
+
+</div>
+</div>
+
+<!-- ====================== FICHE 2 ====================== -->
+<div class="fiche" id="f2">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num po">2</div>
+  <div class="fiche-info">
+    <div class="auteur">Hélène Dorion — « Mes forêts sont de longues traînées de temps »</div>
+    <div class="titre">Mes forêts, 2021 • Poème liminaire • Vers libres</div>
+    <div class="fiche-meta"><span class="meta-tag date">2021</span><span class="meta-tag rec">Mes forêts</span><span class="meta-tag genre">Poésie contemporaine</span><span class="meta-tag epo">XXIe s. · Contexte COVID</span></div>
+  </div>
+  <span class="tag po">Poésie</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Dorion, poétesse québécoise. <em>Mes forêts</em> 2021, écrit pendant la crise COVID (propice à l'introspection). Poème inaugural du recueil, l'un des 5 commençant par « mes forêts sont… ». Vers libres non ponctués.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">En quoi ce poème inaugural inscrit-il d'emblée la forêt dans un imaginaire poétique ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> Strophe 1 — Du cosmos à l'intime</div>
+  <div class="mvt-item"><strong>MVT 2</strong> Strophe 2 — Bourrasques intérieures</div>
+  <div class="mvt-item"><strong>MVT 3</strong> Strophes 3-4 — Espoir / immensité intérieure</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Possessif « Mes »</td><td class="c">« Mes forêts »</td><td class="a">Entre dans la sphère intime</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« longues traînées de temps »</td><td class="a">Alliance concret/abstrait, thème du temps</td></tr>
+<tr><td class="p">Assonance [on] + allit. [d/t]</td><td class="c">« sont, longues, temps »</td><td class="a">Prolonge les sonorités, étirement</td></tr>
+<tr><td class="p">Violence</td><td class="c">« percent la terre / déchirent le ciel »</td><td class="a">Vision disharmonieuse</td></tr>
+<tr><td class="p">Antithèse</td><td class="c">« terre » / « ciel »</td><td class="a">Opposition cosmique</td></tr>
+<tr><td class="p">Allitération [l]</td><td class="c">« légère une aile »</td><td class="a">Contrepoint doux, légèreté</td></tr>
+<tr><td class="p">Oxymore</td><td class="c">« voyages immobiles »</td><td class="a">L'exploration est intérieure</td></tr>
+<tr><td class="p">Personnification</td><td class="c">« mes espoirs debout »</td><td class="a">Énergie, résistance</td></tr>
+<tr><td class="p">Vers isolés</td><td class="c">« mes forêts / sont des nuits très hautes »</td><td class="a">Verticalité, immensité</td></tr>
+</table>
+
+<div class="ccl-box">Forêts imaginaires = paysage intérieur, méditation sur le temps. Les thèmes centraux du recueil s'installent. <strong>Ouv.</strong> : « Le double secret » de Magritte (1927).</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 3 ====================== -->
+<div class="fiche" id="f3">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num po">3</div>
+  <div class="fiche-info">
+    <div class="auteur">Hélène Dorion — « Il fait un temps de bourrasques et de cicatrices »</div>
+    <div class="titre">Mes forêts, 2021 • Poème engagé</div>
+    <div class="fiche-meta"><span class="meta-tag date">2021</span><span class="meta-tag rec">Mes forêts</span><span class="meta-tag genre">Poésie engagée</span><span class="meta-tag epo">XXIe s. · Urgence écologique</span></div>
+  </div>
+  <span class="tag po">Poésie</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Même recueil. Poème ancré dans l'urgence écologique et la crise contemporaine. Vers libres, sans ponctuation, tonalité élégiaque (plainte).</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment ce poème exprime-t-il l'urgence d'un monde en crise tout en affirmant la puissance du chant poétique ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> V. 1-9 — Un monde dévasté</div>
+  <div class="mvt-item"><strong>MVT 2</strong> V. 10-17 — Le chant poétique face au chaos</div>
+  <div class="mvt-item"><strong>MVT 3</strong> V. 18-27 — L'urgence et la menace</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Anaphore</td><td class="c">« il fait un temps de… »</td><td class="a">Bulletin météo apocalyptique, obsession</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« cicatrices »</td><td class="a">Le monde est blessé</td></tr>
+<tr><td class="p">Comparaison</td><td class="c">« comme des vagues / sur aucune rive »</td><td class="a">Promesses sans aboutissement</td></tr>
+<tr><td class="p">Personnification</td><td class="c">« jardins éteints »</td><td class="a">Nature dévastée</td></tr>
+<tr><td class="p">Référence moderne</td><td class="c">« écrans morts »</td><td class="a">Monde technologique en panne</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« mon chant soulève la poussière »</td><td class="a">Poésie = geste de résistance</td></tr>
+<tr><td class="p">Répétition visuelle</td><td class="c">« plus encore / plus / encore / plus »</td><td class="a">Essoufflement, urgence, vers qui rétrécissent</td></tr>
+<tr><td class="p">Pronom « nos »</td><td class="c">« sous nos pas »</td><td class="a">Implique le lecteur, responsabilité collective</td></tr>
+</table>
+
+<div class="ccl-box">Engagement écologique + réflexion sur le langage poétique face à la destruction. La forme (vers de + en + courts) incarne l'urgence. <strong>Ouv.</strong> : rapprochement avec la poésie engagée (Éluard, « Liberté »).</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 4 ====================== -->
+<div class="fiche" id="f4">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num id">4</div>
+  <div class="fiche-info">
+    <div class="auteur">Montesquieu — Lettres persanes, Lettre XCIX</div>
+    <div class="titre">1721 • Les caprices de la mode • Lumières</div>
+    <div class="fiche-meta"><span class="meta-tag date">1721</span><span class="meta-tag rec">Lettres persanes</span><span class="meta-tag genre">Roman épistolaire · Satire</span><span class="meta-tag epo">XVIIIe s. · Lumières</span></div>
+  </div>
+  <span class="tag id">Idées</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Roman épistolaire, Lumières XVIIIe. Rica écrit à Rhédi (ami persan, Venise). Regard éloigné = outil critique. Sujet léger (mode) → critique politique.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment, au travers d'une lettre satirique sur les caprices de la mode, Montesquieu dénonce-t-il l'instabilité politique de la société française ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> §1 — Annonce du sujet</div>
+  <div class="mvt-item"><strong>MVT 2</strong> §2-4 — Tentative comique de décrire la mode</div>
+  <div class="mvt-item"><strong>MVT 3</strong> §5 — Critique de l'instabilité politique</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Adj. retardé</td><td class="c">« les caprices…, étonnants »</td><td class="a">Surprise mise en scène, ironie</td></tr>
+<tr><td class="p">3 temps verbaux</td><td class="c">imparfait / futur / présent</td><td class="a">Instabilité vestimentaire</td></tr>
+<tr><td class="p">Question rhétorique</td><td class="c">« Que me servirait… ? »</td><td class="a">Rica feint la naïveté</td></tr>
+<tr><td class="p">Hyperbole</td><td class="c">« antique » pour 6 mois</td><td class="a">Comique de l'exagération</td></tr>
+<tr><td class="p">Image géométrique</td><td class="c">« le visage au milieu d'elle-même »</td><td class="a">Caricature visuelle des coiffures</td></tr>
+<tr><td class="p">Négation totale</td><td class="c">« il n'en est pas question » (taille, dents)</td><td class="a">Absurdité de la mode = supprime la nature</td></tr>
+<tr><td class="p">Anadiplose</td><td class="c">« à la cour, la cour à la ville, la ville aux provinces »</td><td class="a">Cascade, influence totale du roi</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« L'âme du souverain est un moule »</td><td class="a">Critique du pouvoir absolu → sujets identiques</td></tr>
+</table>
+
+<div class="ccl-box">Satire qui glisse du comique (mode) au politique (pouvoir absolu). Montesquieu = futur auteur de <em>L'Esprit des lois</em>. <strong>Ouv.</strong> : Simone de Beauvoir, <em>Le Deuxième Sexe</em> — la mode comme asservissement des femmes.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 5 ====================== -->
+<div class="fiche" id="f5">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num id">5</div>
+  <div class="fiche-info">
+    <div class="auteur">Graffigny — Lettres d'une Péruvienne, Lettre I (Incipit)</div>
+    <div class="titre">1747 • Cri de Zilia • Roman épistolaire</div>
+    <div class="fiche-meta"><span class="meta-tag date">1747</span><span class="meta-tag rec">Lettres d'une Péruvienne</span><span class="meta-tag genre">Roman épistolaire</span><span class="meta-tag epo">XVIIIe s. · Lumières</span></div>
+  </div>
+  <span class="tag id">Idées</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Graffigny, 1747. Zilia, jeune Inca fiancée à Aza, capturée lors de l'attaque espagnole. Lettre I = incipit, 1re voix de Zilia adressée à Aza. Roman épistolaire des Lumières.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment cet incipit place-t-il immédiatement le lecteur au cœur d'un drame intime et politique ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> L. 1-14 — Plainte désespérée</div>
+  <div class="mvt-item"><strong>MVT 2</strong> L. 15-23 — Événement effroyable (enlèvement)</div>
+  <div class="mvt-item"><strong>MVT 3</strong> L. 24-fin — Ravisseurs dépourvus d'humanité</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Apostrophe</td><td class="c">« Aza ! Mon cher Aza ! »</td><td class="a">Cri d'amour et de détresse</td></tr>
+<tr><td class="p">Comparaison</td><td class="c">« tels une vapeur du matin »</td><td class="a">Paroles qui se perdent = impuissance</td></tr>
+<tr><td class="p">Anaphore</td><td class="c">« en vain… en vain »</td><td class="a">Impuissance répétée</td></tr>
+<tr><td class="p">Gradation ternaire</td><td class="c">« ma douleur, mes craintes, mon désespoir »</td><td class="a">Registre pathétique intense</td></tr>
+<tr><td class="p">Participes accumulés</td><td class="c">« retenue, privée, ignorant »</td><td class="a">Enfermement, privation totale</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« abîme d'obscurité »</td><td class="a">Captivité = gouffre noir</td></tr>
+<tr><td class="p">Renversement</td><td class="c">Européens = « sauvages impies », « féroces »</td><td class="a">Dénonciation de la barbarie coloniale</td></tr>
+<tr><td class="p">Questions rhétoriques</td><td class="c">« Quel peuple assez féroce…? »</td><td class="a">Interpelle la conscience universelle</td></tr>
+</table>
+
+<div class="ccl-box">Incipit = cri mêlant plainte amoureuse + traumatisme + dénonciation coloniale. Pathétique + lyrisme + engagement. <strong>Ouv.</strong> : Montesquieu, même procédé du regard éloigné dans les <em>Lettres persanes</em>.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 6 ====================== -->
+<div class="fiche" id="f6">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num id">6</div>
+  <div class="fiche-info">
+    <div class="auteur">Graffigny — Lettres d'une Péruvienne, Lettre 41 (Dénouement)</div>
+    <div class="titre">1747 • Émancipation de Zilia</div>
+    <div class="fiche-meta"><span class="meta-tag date">1747</span><span class="meta-tag rec">Lettres d'une Péruvienne</span><span class="meta-tag genre">Roman épistolaire</span><span class="meta-tag epo">XVIIIe s. · Lumières</span></div>
+  </div>
+  <span class="tag id">Idées</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Dernière lettre. Aza infidèle (lettre 38). Zilia s'adresse à Déterville (amoureux d'elle). Dénouement controversé à l'époque : pas de mariage, mais émancipation intellectuelle.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment cette fin consacre-t-elle l'émancipation intellectuelle complète de l'héroïne ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> — Condamnation de l'amour-passion → déclaration d'amitié</div>
+  <div class="mvt-item"><strong>MVT 2</strong> — Promesse d'un quotidien orienté par l'amitié</div>
+  <div class="mvt-item"><strong>MVT 3</strong> — Réflexion philosophique : bonheur + solitude</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Métaphore</td><td class="c">« nouvelles chaînes »</td><td class="a">Amour = esclavage, elle refuse</td></tr>
+<tr><td class="p">Champ lex. trahison</td><td class="c">« trahie », « ingrat », « cruel »</td><td class="a">Aza = traître, douleur vive</td></tr>
+<tr><td class="p">Antithèse</td><td class="c">« amour » / « amitié »</td><td class="a">Structure tout le passage, choix d'un autre lien</td></tr>
+<tr><td class="p">Futur simple</td><td class="c">« Je vous les promets, j'y serai fidèle »</td><td class="a">Engagement ferme, rigueur morale</td></tr>
+<tr><td class="p">Parallélismes</td><td class="c">« Vous me donnerez… / je le reprendrai… »</td><td class="a">Réciprocité dans l'amitié</td></tr>
+<tr><td class="p">Nég. exceptive</td><td class="c">« ne…que par l'oisiveté »</td><td class="a">Solitude pas dangereuse si on est active</td></tr>
+<tr><td class="p">Italique</td><td class="c">« je suis, je vis, j'existe »</td><td class="a">Rapproche la lettre du traité philosophique</td></tr>
+<tr><td class="p">Rythme ternaire</td><td class="c">« si l'on s'en souvenait, si l'on en jouissait, si l'on en connaissait le prix »</td><td class="a">Bonheur simple que les humains oublient</td></tr>
+</table>
+
+<div class="ccl-box">Zilia choisit liberté + amitié + connaissance plutôt que l'amour. Émancipation radicale pour l'époque. <strong>Ouv.</strong> : Virginia Woolf, <em>Une chambre à soi</em> — espace propre = condition de la liberté intellectuelle féminine.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 7 ====================== -->
+<div class="fiche" id="f7">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num ro">7</div>
+  <div class="fiche-info">
+    <div class="auteur">Zola — La Faute de l'Abbé Mouret</div>
+    <div class="titre">1875 • Rougon-Macquart • Renaissance de Serge</div>
+    <div class="fiche-meta"><span class="meta-tag date">1875</span><span class="meta-tag rec">Les Rougon-Macquart</span><span class="meta-tag genre">Roman naturaliste</span><span class="meta-tag epo">XIXe s. · Naturalisme</span></div>
+  </div>
+  <span class="tag ro">Roman</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Zola, <em>Rougon-Macquart</em> (1870-1893), fresque naturaliste. <em>La Faute de l'Abbé Mouret</em> 1875 = réécriture de la Genèse + critique de la religion. Serge, abbé amnésique, soigné par Albine dans le jardin du Paradou. Ici : premiers pas face au soleil.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment Zola montre-t-il la résurrection d'un homme qui reprend possession de ses sens et s'ouvre à la vie ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> « Serge naquit… » → « …second réveil » — (Re)naissance sensorielle</div>
+  <div class="mvt-item"><strong>MVT 2</strong> Suite — Un homme transfiguré aux yeux d'Albine</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Passé simple</td><td class="c">« Serge naquit dans l'enfance du matin »</td><td class="a">Naissance brutale + métaphore temporelle</td></tr>
+<tr><td class="p">Répétition</td><td class="c">« Il naissait… Il naissait »</td><td class="a">Naissance progressive (imparfait)</td></tr>
+<tr><td class="p">Paradoxe</td><td class="c">« à vingt-cinq ans, les sens ouverts »</td><td class="a">Naissance adulte, homme neuf</td></tr>
+<tr><td class="p">5 sens</td><td class="c">« lèvres buvaient, narines respiraient, oreilles, yeux »</td><td class="a">Possession charnelle de la nature</td></tr>
+<tr><td class="p">Gradation</td><td class="c">« jusqu'aux brins d'herbe, aux pierres, aux haleines »</td><td class="a">Du visible à l'invisible</td></tr>
+<tr><td class="p">Anaphore</td><td class="c">« Tu es beau, tu es beau ! »</td><td class="a">Admiration émerveillée d'Albine</td></tr>
+<tr><td class="p">Gradation ternaire</td><td class="c">« La santé, la force, la puissance »</td><td class="a">Figure divine ou christique</td></tr>
+<tr><td class="p">Écho biblique</td><td class="c">« Que la lumière est bonne ! »</td><td class="a">Réf. Genèse (« Dieu vit que la lumière était bonne »)</td></tr>
+</table>
+
+<div class="ccl-box">Résurrection sensorielle = réécriture de la Genèse. Serge = nouvel Adam dans le Paradou-Éden. <strong>Ouv.</strong> : Colette dans <em>Sido</em> célèbre aussi la nature par les sens.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 8 ====================== -->
+<div class="fiche" id="f8">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num ro">8</div>
+  <div class="fiche-info">
+    <div class="auteur">Colette — Sido</div>
+    <div class="titre">1929 • Autobiographie • Tempête de neige</div>
+    <div class="fiche-meta"><span class="meta-tag date">1929</span><span class="meta-tag rec">Sido</span><span class="meta-tag genre">Autobiographie</span><span class="meta-tag epo">XXe s. · Modernisme</span></div>
+  </div>
+  <span class="tag ro">Roman</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Œuvre autobiographique 1929. 1er chapitre consacré à Sido, sa mère non conformiste, à Saint-Sauveur-en-Puisaye. Souvenir d'enfance : une tempête de neige.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment perçoit-on la nostalgie de l'autrice et l'héritage immatériel laissé par sa mère (la capacité à s'émerveiller du spectacle de la nature) ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> L. 1-5 — Évocation des saisons de l'enfance</div>
+  <div class="mvt-item"><strong>MVT 2</strong> L. 5-14 — La tempête</div>
+  <div class="mvt-item"><strong>MVT 3</strong> Fin — Contempler les flocons, instant suspendu</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Imparfait</td><td class="c">« Il y avait dans ce temps-là »</td><td class="a">Nostalgie, formule de conte</td></tr>
+<tr><td class="p">Hyperboles</td><td class="c">« grands hivers, brûlants étés »</td><td class="a">Perception magnifiée de l'enfance</td></tr>
+<tr><td class="p">Nég. restrictive</td><td class="c">« Aucun été, sauf ceux de mon enfance »</td><td class="a">Sacralise le passé</td></tr>
+<tr><td class="p">Palette chromatique</td><td class="c">« ocreuse, écarlate, enflammée, blanc pur, ardoisées »</td><td class="a">Peinture sensorielle riche</td></tr>
+<tr><td class="p">Métaphore filée</td><td class="c">« Mousse exalté du navire natal »</td><td class="a">Maison = navire, enfant = mousse, aventure</td></tr>
+<tr><td class="p">Personnification</td><td class="c">Sido a « ses antennes », « goûtait le temps »</td><td class="a">Mère animale/instinctive, en symbiose avec la nature</td></tr>
+<tr><td class="p">Paradoxe</td><td class="c">« Je tâchais de trembler »</td><td class="a">L'enfant joue à avoir peur = bonheur</td></tr>
+<tr><td class="p">Image finale</td><td class="c">« cueillir [la neige] aux mains mêmes de l'Ouest »</td><td class="a">Personnification du vent. La mère transforme la tempête en émerveillement</td></tr>
+</table>
+
+<div class="ccl-box">Écriture sensorielle magnifiant l'enfance. Héritage de Sido = capacité à s'émerveiller. <strong>Ouv.</strong> : dans la suite de l'œuvre, Colette prolonge cet héritage en décrivant nature et animaux avec le même amour.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 9 ====================== -->
+<div class="fiche" id="f9">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num ro">9</div>
+  <div class="fiche-info">
+    <div class="auteur">Colette — « Nonoche », Les Vrilles de la vigne</div>
+    <div class="titre">1908 • Nouvelle • Crépuscule et appel du matou</div>
+    <div class="fiche-meta"><span class="meta-tag date">1908</span><span class="meta-tag rec">Les Vrilles de la vigne</span><span class="meta-tag genre">Nouvelle · Prose poétique</span><span class="meta-tag epo">Belle Époque</span></div>
+  </div>
+  <span class="tag ro">Roman</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Nouvelle dédiée à Willy (1er mari), dans <em>Les Vrilles de la Vigne</em> 1908. Nonoche, chatte au chaton adulte, s'ennuie au crépuscule et entend l'appel du matou. Colette personnifie les chats et projette son propre désir de liberté.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment l'autrice dévoile-t-elle son désir de liberté tout en célébrant la nature et les chats ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> L. 1-14 — Soirée paisible : désœuvrement et contemplation</div>
+  <div class="mvt-item"><strong>MVT 2</strong> L. 15-fin — Arrivée de l'élément perturbateur (le matou)</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Personnification</td><td class="c">« fronce les sourcils », « menace du regard »</td><td class="a">Chat = être humain, humour</td></tr>
+<tr><td class="p">Focalisation animale</td><td class="c">« tiédeur agréable aux pattes »</td><td class="a">Le lecteur perçoit le monde par les sens du chat</td></tr>
+<tr><td class="p">Description impressionniste</td><td class="c">« Les montagnes bleuissent »</td><td class="a">Tableau du crépuscule, couleurs et lumière</td></tr>
+<tr><td class="p">Gradation ternaire</td><td class="c">« s'effile, se balance et s'étale »</td><td class="a">Mouvement lent du brouillard</td></tr>
+<tr><td class="p">Sentiment projeté</td><td class="c">« mélancolie agacée, ce vide et vague désir »</td><td class="a">Colette projette son propre ennui/désir sur Nonoche</td></tr>
+<tr><td class="p">Rupture</td><td class="c">« Mais quelque chose arrête court son geste »</td><td class="a">Suspense, bascule narrative</td></tr>
+<tr><td class="p">4 adjectifs</td><td class="c">« traînant, sauvage, musical, insidieux »</td><td class="a">L'appel du matou = séduction progressive</td></tr>
+<tr><td class="p">Question finale</td><td class="c">« l'Appel du Matou ? »</td><td class="a">Suspense, majuscules = force de l'appel</td></tr>
+</table>
+
+<div class="ccl-box">Célébration des chats, de la nature et du désir de liberté. Matou = tentateur (parallèle avec Willy ?). <strong>Ouv.</strong> : Colette transforme ensuite les miaulements en chant lyrique — amour animal et humain se confondent.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 10 ====================== -->
+<div class="fiche" id="f10">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num th">10</div>
+  <div class="fiche-info">
+    <div class="auteur">Musset — On ne badine pas avec l'amour, Acte I sc. 2</div>
+    <div class="titre">1834 • Retrouvailles Perdican / Camille</div>
+    <div class="fiche-meta"><span class="meta-tag date">1834</span><span class="meta-tag rec">On ne badine pas avec l'amour</span><span class="meta-tag genre">Drame romantique · Proverbe</span><span class="meta-tag epo">XIXe s. · Romantisme</span></div>
+  </div>
+  <span class="tag th">Théâtre</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Drame romantique 1834. Camille et Perdican, cousins, se retrouvent. Le Baron veut les marier. Scène de retrouvailles = tensions d'emblée.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment cette scène de retrouvailles met-elle en place le conflit entre spontanéité et retenue ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> — Retrouvailles contrastées : enthousiasme ≠ froideur</div>
+  <div class="mvt-item"><strong>MVT 2</strong> — Refus du baiser, joute sur amour/amitié</div>
+  <div class="mvt-item"><strong>MVT 3</strong> — Objets symboliques : portrait religieux ≠ héliotrope</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Contraste tonalité</td><td class="c">Perdican : « Quel bonheur ! » / Camille : « je vous salue »</td><td class="a">Spontanéité vs froideur, tutoiement vs vouvoiement</td></tr>
+<tr><td class="p">Refus</td><td class="c">« Excusez-moi »</td><td class="a">Crée la tension dramatique, refus du contact</td></tr>
+<tr><td class="p">Maxime</td><td class="c">« l'amour peut voler un baiser, mais non pas l'amitié »</td><td class="a">Perdican riposte avec esprit</td></tr>
+<tr><td class="p">Sentence</td><td class="c">« ne doivent recevoir que ce qu'ils peuvent rendre »</td><td class="a">Méfiance de Camille, influence du couvent</td></tr>
+<tr><td class="p">Symbole</td><td class="c">Portrait de la grand-tante religieuse</td><td class="a">Camille admire le modèle conventuel</td></tr>
+<tr><td class="p">Symbole</td><td class="c">Héliotrope « grosse comme une mouche »</td><td class="a">Perdican défend la nature, la simplicité</td></tr>
+<tr><td class="p">Aparté</td><td class="c">Le Baron « choqué, blessé, vexé, piqué »</td><td class="a">Comique, gradation d'exaspération</td></tr>
+</table>
+
+<div class="ccl-box">Scène d'exposition : conflit central installé. Spontanéité sensible (Perdican) vs retenue calculée (Camille). Les objets annoncent le drame. <strong>Ouv.</strong> : le malentendu initial mènera à la catastrophe finale.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 14 ====================== -->
+<div class="fiche" id="f14">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num th">14</div>
+  <div class="fiche-info">
+    <div class="auteur">Musset — On ne badine pas…, Acte II sc. 5</div>
+    <div class="titre">1834 • Grande tirade de Perdican</div>
+    <div class="fiche-meta"><span class="meta-tag date">1834</span><span class="meta-tag rec">On ne badine pas avec l'amour</span><span class="meta-tag genre">Drame romantique</span><span class="meta-tag epo">XIXe s. · Romantisme</span></div>
+  </div>
+  <span class="tag th">Théâtre</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Perdican, blessé par le refus de Camille, dénonce l'influence du couvent puis fait un éloge bouleversant de l'amour malgré la souffrance. Tirade emblématique du romantisme.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment Perdican passe-t-il de la colère à un éloge vibrant de l'amour humain ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> — Dénonciation véhémente de l'influence des nonnes</div>
+  <div class="mvt-item"><strong>MVT 2</strong> — Éloge paradoxal de l'amour malgré ses imperfections</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Question rhétorique</td><td class="c">« Sais-tu ce que c'est que des nonnes ? »</td><td class="a">Agression verbale, colère</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« masque de plâtre »</td><td class="a">Le couvent a figé, dénaturé Camille</td></tr>
+<tr><td class="p">Antiphrase</td><td class="c">« ces femmes ont bien parlé »</td><td class="a">Ironie grinçante</td></tr>
+<tr><td class="p">Concession MAIS</td><td class="c">« Tous sont menteurs… MAIS il y a une chose sublime »</td><td class="a">Retournement rhétorique magistral</td></tr>
+<tr><td class="p">Énumérations</td><td class="c">« menteurs, inconstants, faux, bavards… »</td><td class="a">Noircit l'humanité pour mieux rehausser l'amour</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« égout sans fond », « montagnes de fange »</td><td class="a">Vision apocalyptique du monde</td></tr>
+<tr><td class="p">Anaphore</td><td class="c">« souvent trompé… souvent blessé… souvent malheureux ; mais on aime »</td><td class="a">Rythme oratoire puissant</td></tr>
+<tr><td class="p">Opposition</td><td class="c">« C'est moi qui ai vécu, et non pas un être factice »</td><td class="a">L'amour = seule preuve d'une vie authentique</td></tr>
+</table>
+
+<div class="ccl-box">Tirade romantique : l'amour, même douloureux, donne sens à l'existence. Vérité des sentiments vs artifice du renoncement. <strong>Ouv.</strong> : cette conception de l'amour sera démentie par la fin tragique.</div>
+</div>
+</div>
+
+<!-- ====================== FICHE 15 ====================== -->
+<div class="fiche" id="f15">
+<div class="fiche-head" onclick="this.parentElement.classList.toggle('open')">
+  <div class="fiche-num th">15</div>
+  <div class="fiche-info">
+    <div class="auteur">Musset — On ne badine pas…, Acte III sc. 8 (Dénouement)</div>
+    <div class="titre">1834 • Aveu + mort de Rosette</div>
+    <div class="fiche-meta"><span class="meta-tag date">1834</span><span class="meta-tag rec">On ne badine pas avec l'amour</span><span class="meta-tag genre">Drame romantique</span><span class="meta-tag epo">XIXe s. · Romantisme</span></div>
+  </div>
+  <span class="tag th">Théâtre</span>
+  <span class="arrow">›</span>
+</div>
+<div class="fiche-body">
+
+<span class="section-label sl-intro">Introduction</span>
+<p>Dénouement. Après des jeux cruels de séduction, Perdican et Camille avouent enfin leur amour. Mais Rosette (paysanne utilisée pour rendre Camille jalouse) les espionne et meurt.</p>
+
+<span class="section-label sl-prob">Problématique</span>
+<div class="prob-box">Comment ce dénouement tragique transforme-t-il l'aveu amoureux en catastrophe, illustrant le titre ?</div>
+
+<span class="section-label sl-mvt">Mouvements</span>
+<div class="mvt-grid">
+  <div class="mvt-item"><strong>MVT 1</strong> — L'aveu réciproque et la prière</div>
+  <div class="mvt-item"><strong>MVT 2</strong> — Irruption de la tragédie : cri, mort, séparation</div>
+</div>
+
+<table class="proc-table">
+<tr><th>Procédé</th><th>Citation</th><th>Effet</th></tr>
+<tr><td class="p">Exclamation</td><td class="c">« Insensés que nous sommes ! nous nous aimons »</td><td class="a">Aveu = lucidité douloureuse</td></tr>
+<tr><td class="p">Métaphore filée</td><td class="c">« perle rare dans cet océan », « pêcheur céleste »</td><td class="a">Bonheur = joyau gâché par des enfants</td></tr>
+<tr><td class="p">Conditionnel passé</td><td class="c">« qui nous aurait conduits »</td><td class="a">Remords, irréversibilité</td></tr>
+<tr><td class="p">Symétrie</td><td class="c">Perdican : « nous nous aimons » → Camille reprend</td><td class="a">Aveu réciproque, enfin en harmonie</td></tr>
+<tr><td class="p">Didascalie</td><td class="c">« on entend un grand cri derrière l'autel »</td><td class="a">Coup de théâtre, irruption du réel</td></tr>
+<tr><td class="p">Métaphore</td><td class="c">« mes mains sont couvertes de sang »</td><td class="a">Culpabilité AVANT de savoir</td></tr>
+<tr><td class="p">Prière</td><td class="c">« ne faites pas de moi un meurtrier ! »</td><td class="a">Impuissance, registre tragique</td></tr>
+<tr><td class="p">Phrase-couperet</td><td class="c">« Elle est morte. Adieu, Perdican ! »</td><td class="a">Rupture définitive. 2 phrases = fin absolue</td></tr>
+</table>
+
+<div class="ccl-box">Lyrique (aveu) + tragique (mort). Les « enfants insensés » sont punis pour avoir « badiné ». Le titre prend tout son sens. <strong>Ouv.</strong> : le drame romantique mêle comédie et tragédie — ici le rire est devenu impossible.</div>
+</div>
+</div>
+
+<!-- ====================== PLANNING ====================== -->
+<div class="method-section" id="planning">
+<h2 class="cya">📅 Planning de révision → mardi 26 mai</h2>
+
+<div class="tip"><strong>PRINCIPE :</strong> 1 texte = 1 séance de 45 min. Phase 1 = apprendre. Phase 2 = s'entraîner à l'oral. Phase 3 = simulations chronométrées.</div>
+
+<div class="day-grid">
+<div class="day-label">Lun 12</div><div class="day-task">Textes 1 + 2 (Noailles + Dorion 1). Lire, mémoriser intro + problématique + mouvements.</div>
+<div class="day-label">Mar 13</div><div class="day-task">Textes 3 + 4 (Dorion 2 + Montesquieu). Même méthode. Relire T1-T2 le soir 10 min.</div>
+<div class="day-label">Mer 14</div><div class="day-task">Textes 5 + 6 (Graffigny incipit + dénouement). Relire T3-T4 rapidement.</div>
+<div class="day-label">Jeu 15</div><div class="day-task">Textes 7 + 8 (Zola + Sido). Relire T1-T6 en mode « flash » (problématique + mouvements).</div>
+<div class="day-label">Ven 16</div><div class="day-task">Textes 9 + 10 (Nonoche + Musset I,2). Relire T7-T8.</div>
+<div class="day-label">Sam 17</div><div class="day-task">Textes 14 + 15 (Musset II,5 + III,8). Relire T9-T10. ✅ Tu as vu les 12 textes.</div>
+<div class="day-label">Dim 18</div><div class="day-task">PAUSE ou relecture libre. Préparer ta présentation d'œuvre (3 arguments illustrés).</div>
+<div class="day-label">Lun 19</div><div class="day-task">🎤 Simulation T1 + T4. Chronomètre 12 min. Enregistre-toi. Identifie les faiblesses.</div>
+<div class="day-label">Mar 20</div><div class="day-task">🎤 Simulation T2 + T5. Révise les figures de style en parallèle.</div>
+<div class="day-label">Mer 21</div><div class="day-task">🎤 Simulation T7 + T10. Révise la grammaire (phrase complexe, propositions, négations).</div>
+<div class="day-label">Jeu 22</div><div class="day-task">🎤 Simulation T3 + T6 + T8. Travaille la lecture expressive.</div>
+<div class="day-label">Ven 23</div><div class="day-task">🎤 Simulation T9 + T14 + T15. Refais ta présentation d'œuvre chronométrée (3 min).</div>
+<div class="day-label">Sam 24</div><div class="day-task">🎯 Tire 2 textes au hasard. 30 min de prépa + oral complet chronométré. Corrige.</div>
+<div class="day-label">Dim 25</div><div class="day-task">🎯 Dernière simulation au hasard. Relis toutes les fiches 1 dernière fois. Couche-toi tôt.</div>
+<div class="day-label" style="color:var(--yellow);">Mar 26</div><div class="day-task" style="color:var(--yellow);font-weight:700;">JOUR J. Tu es prêt.</div>
+</div>
+
+<div class="tip" style="margin-top:15px;">
+<strong>COMMENT S'ENTRAÎNER À L'ORAL :</strong><br>
+1. Tire un texte au sort → 30 min de prépa (notes NON rédigées)<br>
+2. Chronomètre : intro+lecture 2min, expli 8min, conclusion 30s<br>
+3. Enregistre-toi pour repérer : paraphrases, tics de langage, longueurs<br>
+4. Si trop long → coupe des analyses. Si trop court → développe les effets des procédés.<br>
+5. Pour l'œuvre : entraîne-toi avec quelqu'un qui te pose des questions.</div>
+</div>
+
+</div>
+
+<script>
+// All fiches start closed except the first
+document.querySelectorAll('.fiche').forEach((f, i) => {
+  if (i > 0) f.classList.remove('open');
+});
+</script>
+
+</body>
+</html>
